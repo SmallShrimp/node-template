@@ -1,13 +1,9 @@
 import 'babel-polyfill';
-import express from 'express';
-const app = express();
-
-app.use('*', async function (req, res, next) {
-    res.send('node template!').end();
-});
+import config from './config.js';
+import app from './src/server';
 
 
-const server = app.listen(9898, () => {
+const server = app.listen(config.port, () => {
     const port = server.address().port;
     console.log('Listening at port->http://localhost:', port);
 });
