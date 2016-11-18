@@ -18,7 +18,7 @@ var webpackConfig = module.exports = {
     filename: '[name].js',
     publicPath: 'http://localhost:' + config.devPort + '/assets/'
   },
-  devtool: 'eval',
+  devtool: "eval",
   resolve: {
     modulesDirectories: ['shared', 'node_modules'],
     extensions: ['', '.js', '.jsx', '.json']

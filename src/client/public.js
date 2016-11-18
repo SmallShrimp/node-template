@@ -17,14 +17,14 @@ function createStoreWithReducer(reducer, state = {}) {
 function renderClient() {
     const basePath = 'pages';
     const state = window.__initialState;
-    const path = window.__path;
+    var _path = window.__path;
     var store = createStoreWithReducer(reducer, state);
     var PageComponent;
-    if (path == "/" || path == '') {
+    if (_path == "/" || _path == '') {
         PageComponent = require('pages/index').default;
     } else {
         //--> /auth/login
-        PageComponent = require('pages' + path).default;
+        PageComponent = require('pages/' + _path).default;
     }
 
     render(
