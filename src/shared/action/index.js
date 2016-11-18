@@ -12,3 +12,10 @@ export function Update(model) {
         });
     }
 }
+
+export function UpdateDate(dispatch, getState) {
+    return dispatch({
+        type: type.UpdateDate,
+        date: (new Date()).now
+    })
+}

@@ -6,6 +6,8 @@ const Update = "Update";
 const Insert = "Insert";
 const Delete = "Delete";
 
+const UpdateDate = "UpdateDate";
+
 export default {
-    Update, Insert, Delete
+    Update, Insert, Delete, UpdateDate
 };
