@@ -11,7 +11,7 @@ export default function (state = InitState, action) {
             newState = Object.assign({}, state, action.status);
             break;
         case type.UpdateDate:
-            newState = Object.assign({}, state, action.date);
+            newState = Object.assign({}, state, {date: action.date});
             break;
         //......
     }

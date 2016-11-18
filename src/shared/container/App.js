@@ -23,14 +23,12 @@ class App extends React.Component {
     }
 
     static propTypes = {
-        date: React.PropTypes.string
+        date: React.PropTypes.object
     };
 
     render() {
-        console.log(this)
         var props = this.props;
         var date = !props.main ? new Date() : props.main.date;
-        console.log(props.main)
         return (<div>
             { date.toLocaleDateString() + ' ' + date.toLocaleTimeString()}
         </div>);
