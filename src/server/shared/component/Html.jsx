@@ -26,7 +26,7 @@ export default class Html extends React.Component {
             </head>
             <body>
             <div id='view' dangerouslySetInnerHTML={{__html: this.props.body}}/>
-            <script dangerouslySetInnerHTML={{__html: `window.__path=${this.props.path}`}}/>
+            <script dangerouslySetInnerHTML={{__html: `window.__path='${this.props.path}'`}}/>
             <script dangerouslySetInnerHTML={{__html: `window.__initialState = ${serialize(this.props.props)};`}}/>
             {this.renderFooter()}
             </body>

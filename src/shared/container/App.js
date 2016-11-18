@@ -1,6 +1,8 @@
 /**
  * Created by Administrator on 2016/11/18.
  */
+
+import '../stylesheet/normalize.less';
 import React from 'react';
 var {connect} = require('react-redux');
 

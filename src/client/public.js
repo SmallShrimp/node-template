@@ -20,12 +20,13 @@ function renderClient() {
     const path = window.__path;
     var store = createStoreWithReducer(reducer, state);
     var PageComponent;
-    if (path == "/" || path === '') {
-        PageComponent = require('pages/index');
+    if (path == "/" || path == '') {
+        PageComponent = require('pages/index').default;
     } else {
         //--> /auth/login
-        PageComponent = require('pages' + path);
+        PageComponent = require('pages' + path).default;
     }
+
     render(
         <Provider store={store}>
             <PageComponent />
