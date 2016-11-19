@@ -37,7 +37,7 @@ function createPages() {
         // var files = earchPages(pagePath);
         var result = {};
         create(result, earchPages(path.join(pagePath, 'pages')), "pages", "");
-        //console.log('最终结果：', result);
+        console.log('最终结果：', result);
         cache.put(_global.page_cache_key, result, _global.cache_timeout, (key, value)=> {
             cache.put(key, value);
         });

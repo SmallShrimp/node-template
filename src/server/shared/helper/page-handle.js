@@ -24,13 +24,11 @@ export default class PageHandle {
         }
         if (url.indexOf('/') == -1) {
             var r = _pages[url];
-            if (!r || !r.default) return NoMatch;
-            return r.default;
+            return (!r || !r.default) ? NoMatch : r;
         }
         var urlSplit = url.split('/');
         var r = that.searchPage(urlSplit, _pages);
-        if (!r) return NoMatch;
-        return r;
+        return !r ? NoMatch : r;
     }
 
     searchPage(urlSplit, curPages) {
@@ -38,7 +36,7 @@ export default class PageHandle {
         var that = this;
         try {
             if (urlSplit.length == 0 && !!curPages.default) {
-                return curPages.default;
+                return curPages;
             }
             var key = urlSplit[0];
             for (var k in curPages) {

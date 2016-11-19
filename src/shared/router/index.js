@@ -6,6 +6,7 @@ import App from '../container/App';
 export default (
     <Router history={hashHistory}>
         <Route path="/" component={App}>
+
         </Route>
         <Route path="*" component={NoMatch}/>
     </Router>

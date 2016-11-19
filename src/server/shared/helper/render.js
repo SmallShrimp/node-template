@@ -11,7 +11,9 @@ export default class RenderHelper {
     render(locals, baseComponent, path, initState) {
         var that = this;
         // console.log('baseComponent->', baseComponent)
-        return renderToString(<Html path={path} body={that.renderBody(baseComponent)} locals={locals}
+        return renderToString(<Html path={path}
+                                    body={that.renderBody(baseComponent)}
+                                    locals={locals}
                                     props={initState}/>)
     }
 

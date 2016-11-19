@@ -17,10 +17,35 @@ const route = new Router();
 route.get("/*",
     async(req, res, next)=> {
         //服务端渲染
-        var Page = pageHandle.get(req.path);
+        var PageResult = pageHandle.get(req.path);
+        var Page = PageResult.default;
+        var PageBound = PageResult.bound;
         var _path = req.path;
         if (_.startsWith(_path, '/')) {
             _path = _path.substr(1, _path.length);
+        }
+        if (!!PageBound) {
+            var styles = PageBound.styles;
+            var scripts = PageBound.scripts;
+
+            for (var i = styles.length - 1; i >= 0; i--) {
+                res.locals.header.unshift({
+                    tag: 'link',
+                    props: {
+                        rel: 'stylesheet',
+                        type: 'text/css',
+                        href: `${styles[i]}`
+                    }
+                });
+            }
+            for (var i = scripts.length - 1; i >= 0; i--) {
+                res.locals.footer.unshift({
+                    tag: 'script',
+                    props: {
+                        src: `${scripts[i]}`
+                    }
+                });
+            }
         }
         var html = renderHelper.render(res.locals, <Page/>, _path, {});
         res.locals.html = html;
